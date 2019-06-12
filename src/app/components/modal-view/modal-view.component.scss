@@ -1,0 +1,95 @@
+.modal-view {
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    .modal-backdrop {
+      background-image: radial-gradient( circle farthest-corner at 0.5% 3%, rgba(98, 50, 122, 1) 0%, rgba(56, 0, 92, 1) 90.1%);
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      content: "";
+      opacity: .6;
+    }
+    .modal-body {
+      width: 570px;
+      color: #666;
+      background-color: #fff;
+      padding: 20px 60px 60px;
+      border-radius: 10px;
+      box-shadow: 0 35px 60px -15px rgba(0, 0, 0, .3);
+      min-height: 300px;
+      position: relative;
+      padding-left: 180px;
+      transition: all 300ms cubic-bezier(0.075, 0.82, 0.165, 1);
+      z-index: 2;
+      .modal-info {
+        padding-left: 15px;
+        p {
+          padding-top: 5px;
+          &.box-info-ratings {
+            img {
+              position: relative;
+              top: 3px;
+              margin-left: 5px;
+            }
+          }
+        }
+      }
+      .modal-poster {
+        width: 250px;
+        position: absolute;
+        object-fit: cover;
+        max-height: 375px;
+        left: -80px;
+        top: -90px;
+        border-radius: 10px;
+        box-shadow: 0 35px 60px -15px rgba(0, 0, 0, .3);
+      }
+      .modal-form {
+        margin-top: 20px;
+        mat-form-field {
+          padding-top: 15px;
+          width: 100%;
+        }
+      }
+
+      .modal-result{
+        margin-top: 20px;
+        .custom-message{
+          padding-bottom: 10px;
+        }
+        .total-days{
+          padding-bottom: 10px;
+        }
+        .expire-date{
+          padding-bottom: 10px;
+        }
+        .has-expired{
+          padding:10px;
+          background-color: rgba(red, 0.1);
+          border:solid 1px red;
+          border-radius: 6px;
+        }
+        .has-not-expired{
+          padding:10px;
+          background-color: rgba(green, 0.1);
+          border:solid 1px green;
+          border-radius: 6px;
+        }
+      }
+
+      [mat-raised-button] {
+        width: 100%;
+        height: 54px;
+        margin-top: 15px;
+      }
+    }
+  }

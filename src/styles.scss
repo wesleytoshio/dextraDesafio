@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap');
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-rendering: optimizelegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+::before, ::after {
+  box-sizing: border-box;
+  text-rendering: optimizelegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  overflow-y: hidden;
+  overflow-x: scroll;
+  background-color: #141414;
+  font-family: 'Roboto', sans-serif;
+  height: 100vh;
+}
+
+html {
+  height: 100vh;
+  scroll-behavior: smooth;
+}
+
+/* scrollbar size */
+::-webkit-scrollbar {
+  width: 0;
+}
+.wrapper{
+  width: 95vw;
+  height: 100%;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  .container {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    display: flex;
+    flex-wrap: nowrap;
+    margin-left: 10vw;
+    transform: translateY(-50%);
+    .section {
+      display: block;
+      width: 300px;
+      height: 450px;
+      flex: 0 0 auto;
+      margin-left: 20px;
+      border-radius: 6px;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-color: #555;
+      position: relative;
+      transform: scale(1);
+      transition: all 200ms cubic-bezier(0.075, 0.82, 0.165, 1);
+      &:hover{
+        transform: scale(1.03);  
+      }
+      .box-info{
+        position: absolute;
+        bottom: -100px;
+        color: #fff;
+        left: 0;
+        h2{
+            color: aquamarine;
+        }
+        p{
+            padding-top: 5px;
+            &.box-info-ratings{
+                img{
+                    position: relative;
+                    top: 3px;
+                    margin-left: 5px;
+                }
+            }
+        }
+      }
+        &:last-child{
+            &:after{
+                content:"";
+                display: block;
+                width: 300px;
+                height: 100px;
+                margin-left: 100px;
+    
+            }
+        }
+    }
+  }
+}
+.navbar{
+  position: fixed;
+    left:10vw;
+    top: 5vh;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    width: 100%;
+    align-items: center;
+    .dextrafliex-logo{
+      width: 200px;
+      display: inline-block;
+      font-size: 28px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      b{
+          color: aquamarine;
+      }
+      small{
+          display: block;
+          font-weight: 300;
+          text-transform: uppercase;
+          letter-spacing: 5px;
+      }
+  }
+  .box-search{
+    width: 100%;
+    overflow: hidden;
+    
+    input{
+      border-radius: 65px;
+      height: 65px;
+      width: 350px;
+      padding-left: 35px;
+      outline: none;
+      background-color: #1b1b1b;
+      border:none;
+      font-size: 20px;
+      color: #fff;
+      transition: all 200ms linear;
+      &:hover{
+        width: 60vw;
+      }
+    }
+  }
+}

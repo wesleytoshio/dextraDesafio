@@ -1,0 +1,22 @@
+<div class="wrapper">
+  
+  <div class="navbar">
+    <a href="#" class="dextrafliex-logo">Dextra<b>Flix</b> <small>FIND IT OUT</small></a>
+    <div class="box-search">
+        <input type="text" placeholder="Pesquisar série" [(ngModel)]="searchText"/>
+    </div>
+  </div>
+  <div class="container">
+    <div class="section" *ngFor="let serie of series  | filterBy: ['title']: searchText;" [style.backgroundImage]="'url(' + serie?.extra?.Poster + ')'" (click)="openModal(serie)">
+      <div class="box-info">
+        <h2>{{serie.title}}</h2>
+        <p>Lançamento: {{serie.releaseDate | date:'dd/MM/yyyy'}}</p>
+        <p class="box-info-ratings">
+          <img src="assets/img/stars.svg" width="20"/>
+          {{serie?.extra?.Ratings[0]?.Value}}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<app-modal-view [data]="currentData" (valueChange)="closeModal($event)" @modal *ngIf="isModalOpen"></app-modal-view>

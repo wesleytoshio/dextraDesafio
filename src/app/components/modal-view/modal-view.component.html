@@ -1,0 +1,50 @@
+<div class="modal-view">
+  <div class="modal-body">
+    <img [src]="data?.extra?.Poster" class="modal-poster" />
+    <div class="modal-info">
+      <h2>{{data.title}}</h2>
+      <p>Lançamento: {{data.releaseDate | date:'dd/MM/yyyy'}}</p>
+      <p>Essa série possui {{utils.getTimeFromMins(seasonTotalTime)}}</p>
+      <p class="box-info-ratings">
+        <img src="assets/img/stars.svg" width="20" />
+        {{data?.extra?.Ratings[0]?.Value}}
+      </p>
+      <div class="modal-form" *ngIf="!isCalculated && !invalidRelease">
+        Você está ansioso para a nova temporada de uma série que você gosta muito e não lembra mais nada?
+        <div class="example-form">
+          <mat-form-field>
+            <input matInput [matDatepicker]="picker" (click)="picker.open()" [min]="minDate" [max]="maxDate"
+              autocomplete="off" placeholder="Quando quero começar?" (change)="selectedDate=$event.target.value"
+              [(ngModel)]="selectedDate" />
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+          <mat-checkbox mat-raised-button color="primary" [(ngModel)]="enablePerHour">Definir por horas?</mat-checkbox>
+          <mat-form-field class="example-full-width" *ngIf="enablePerHour">
+            <input matInput placeholder="Tempo para assistir por dia?" type="number" max="24" min="1" autocomplete="off"
+              (change)="hourPerDay=$event.target.value" />
+          </mat-form-field>
+          <button mat-raised-button color="primary" (click)="calcTime(selectedDate, hourPerDay)">CALCULAR AGORA</button>
+        </div>
+      </div>
+
+      <!--CALCULATOR RESULT-->
+      <div class="modal-result" *ngIf="isCalculated && !invalidRelease">
+        <h3>Resultado:</h3>
+        <p class="custom-message">{{dataCalc.hours < 2 ? 'Assistindo +/- 1 hora por dia você vai conseguir ficar em dias com a estreia :)' : dataCalc.hours> 24  ? 'Você atingiu a capacidade máxima de horas por dia que é 24 horas.' : 'Você precisa dedicar no mínimo '+dataCalc.hours+' hora(s) por dia para conseguir' }}</p>
+        <p class="total-days" *ngIf="dataCalc.hours>24">Você teria que assitir: <b>{{dataCalc.hours}} horas</b></p>
+        <p class="total-days">Dias para concluir: <b>{{dataCalc.days}}</b></p>
+        <p class="expire-date">Você terminará de assistir em: <b>{{dataCalc.expireDate | date:'dd/MM/yyyy'}} assistindo {{dataCalc.hours > 1 ? dataCalc.hours+' horas' : dataCalc.hours+' hora'}} por dia</b></p>
+        <p class="has-expired" *ngIf="dataCalc?.hasExpired">Sinto muito 😔, você passou da data da estreia</p>
+        <p class="has-not-expired" *ngIf="!dataCalc?.hasExpired">Ainda dá tempo de assistir {{data.title}} 😍</p>
+        <button mat-raised-button color="accent" (click)="reset()">NOVO CÁLCULO</button>
+      </div>
+
+      <!--CALCULATOR RESULT-->
+      <div class="modal-result" *ngIf="invalidRelease">
+          <p class="has-expired">Não é possível calcular, porque a <b>Data de Lançamento</b> é inferior a <b>{{selectedDate | date:'dd/MM/yyyy'}}</b></p>
+      </div>
+    </div>
+  </div>
+  <div class="modal-backdrop" (click)="valueChanged()"></div>
+</div>

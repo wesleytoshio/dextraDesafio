@@ -1,0 +1,44 @@
+[
+    {
+        "id": "1",
+        "imdbId": "tt0944947",
+        "title": "Game of Thrones",
+        "numberOfSeasons": 8,
+        "releaseDate": "2015-01-29"
+    },
+    {
+        "id": "2",
+        "imdbId": "tt6226232",
+        "title": "Young Sheldon",
+        "numberOfSeasons": 4,
+        "releaseDate": "2021-06-18"
+    },
+    {
+        "id": "3",
+        "imdbId": "tt0475784",
+        "title": "Westworld",
+        "numberOfSeasons": 3,
+        "releaseDate": "2020-06-06"
+    },
+    {
+        "id": "4",
+        "imdbId": "tt0411008",
+        "title": "Lost",
+        "numberOfSeasons": 6,
+        "releaseDate": "2008-11-28"
+    },
+    {
+        "id": "5",
+        "imdbId": "tt6468322",
+        "title": "La Casa de Papel",
+        "numberOfSeasons": 3,
+        "releaseDate": "2021-01-23"
+    },
+    {
+        "id": "6",
+        "imdbId": "tt0098936",
+        "title": "Twin Peaks",
+        "numberOfSeasons": 2,
+        "releaseDate": "1994-12-29"
+    }
+]
