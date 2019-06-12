@@ -2,7 +2,7 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.2.
 
-## Observação
+## Observações
 
 Como essa API esta com erro e CORS e CORS Blocked, recomendo usar o extensão do google chorme Allow CORS: Access-Control-Allow-origin, caso não consiga por favor entre em contato comigo que eu posso apresentar.
 
